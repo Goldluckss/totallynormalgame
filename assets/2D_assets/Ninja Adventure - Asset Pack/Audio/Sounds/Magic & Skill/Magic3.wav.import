@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqt53mq2x5fhr"
+path="res://.godot/imported/Magic3.wav-dfd07c2249d4efc53d1c5446262a450d.sample"
+
+[deps]
+
+source_file="res://assets/2D_assets/Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Magic3.wav"
+dest_files=["res://.godot/imported/Magic3.wav-dfd07c2249d4efc53d1c5446262a450d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
