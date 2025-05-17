@@ -11,26 +11,19 @@ func _on_process(_delta : float) -> void:
 
 func _on_physics_process(_delta : float) -> void:
 	var direction: Vector2 = GameInputEvents.movement_input()
-
-	if direction != Vector2.ZERO:
-		direction = direction.normalized()
-
-		# Determine animation based on dominant axis
-		if abs(direction.x) > abs(direction.y):
-			if direction.x > 0:
-				animated_sprite_2d.play("walk_right")
-			else:
-				animated_sprite_2d.play("walk_left")
-		else:
-			if direction.y > 0:
-				animated_sprite_2d.play("walk_front")
-			else:
-				animated_sprite_2d.play("walk_back")
-	else:
-		animated_sprite_2d.stop()
-
+	
+	if direction == Vector2.UP:
+		animated_sprite_2d.play("walk_back")
+	elif direction == Vector2.RIGHT:
+		animated_sprite_2d.play("walk_right")
+	elif direction == Vector2.DOWN:
+		animated_sprite_2d.play("walk_front")
+	elif direction == Vector2.LEFT:
+		animated_sprite_2d.play("walk_left")
+	
 	player.velocity = direction * speed
 	player.move_and_slide()
+
 
 func _on_next_transitions() -> void:
 	if !GameInputEvents.is_movement_input():

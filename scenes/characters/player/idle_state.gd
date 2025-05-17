@@ -20,7 +20,8 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("idle_front")
 	elif direction == Vector2.LEFT:
 		animated_sprite_2d.play("idle_left")
-
+	else:
+		animated_sprite_2d.play("idle_front")
 
 
 func _on_next_transitions() -> void:
