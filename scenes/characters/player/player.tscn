@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://d2vvyi20mr6w3"]
+[gd_scene load_steps=49 format=3 uid="uid://d2vvyi20mr6w3"]
 
 [ext_resource type="Texture2D" uid="uid://ctefps2s6olwt" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="1_1id3v"]
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_ly0mq"]
 [ext_resource type="Texture2D" uid="uid://b6bbg2nbeyfmy" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="2_2sp2j"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_jwbln"]
 [ext_resource type="Script" path="res://scenes/characters/player/idle_state.gd" id="4_8a5ue"]
@@ -393,6 +394,7 @@ animations = [{
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ly0mq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
