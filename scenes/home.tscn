@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://causfqmjvqrt0"]
 
-[ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/home_tile_set.tres" id="1_6vq6i"]
+[ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_6vq6i"]
 [ext_resource type="PackedScene" uid="uid://d2vvyi20mr6w3" path="res://scenes/characters/player/player.tscn" id="2_hbcs2"]
 
 [node name="Home" type="Node2D"]
@@ -16,11 +16,16 @@ tile_map_data = PackedByteArray("AAAMAA4AAQABAAEAAAAMAA0AAQABAAEAAAAMAAwAAQABAAE
 tile_set = ExtResource("1_6vq6i")
 
 [node name="TilledDirt" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray("AAAGAAgAAwAAAAAAAAAHAAgAAwABAAAAAAAHAAkAAwABAAEAAAAHAAoAAwABAAEAAAAHAAsAAwABAAIAAAAGAAsAAwAAAAIAAAAGAAoAAwAAAAEAAAAGAAkAAwAAAAEAAAAIAAgAAwACAAAAAAAIAAkAAwACAAEAAAAIAAoAAwACAAEAAAAIAAsAAwACAAIAAAAKAAgAAwAAAAAAAAAKAAkAAwAAAAEAAAAKAAoAAwAAAAEAAAAKAAsAAwAAAAIAAAALAAsAAwABAAIAAAAMAAsAAwACAAIAAAAMAAoAAwACAAEAAAAMAAkAAwACAAEAAAALAAkAAwABAAEAAAALAAgAAwABAAAAAAALAAoAAwABAAEAAAAMAAgAAwACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAAgAAwAAAAAAAAAFAAgAAwABAAAAAAAFAAkAAwABAAEAAAAGAAkAAwACAAEAAAAGAAoAAwACAAEAAAAGAAsAAwACAAEAAAAGAAwAAwACAAIAAAAFAAwAAwABAAIAAAAEAAwAAwAAAAIAAAAEAAsAAwAAAAEAAAAEAAoAAwAAAAEAAAAEAAkAAwAAAAEAAAAGAAgAAwACAAAAAAAFAAoAAwABAAEAAAAFAAsAAwABAAEAAAAIAAwAAwAAAAIAAAAJAAwAAwABAAIAAAAKAAwAAwACAAIAAAAKAAsAAwACAAEAAAAKAAoAAwACAAEAAAAKAAkAAwACAAEAAAAJAAkAAwABAAEAAAAJAAgAAwABAAAAAAAIAAgAAwAAAAAAAAAIAAkAAwAAAAEAAAAIAAoAAwAAAAEAAAAIAAsAAwAAAAEAAAAJAAsAAwABAAEAAAAJAAoAAwABAAEAAAAKAAgAAwACAAAAAAA=")
 tile_set = ExtResource("1_6vq6i")
 
 [node name="Nature" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("1_6vq6i")
 
+[node name="Houses" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAANAAwABQAAAAAAAQA=")
+tile_set = ExtResource("1_6vq6i")
+
 [node name="Player" parent="." instance=ExtResource("2_hbcs2")]
-position = Vector2(314, 174)
+position = Vector2(313, 238)
+current_tool = 1
