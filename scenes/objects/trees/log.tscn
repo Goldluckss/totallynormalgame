@@ -18,3 +18,4 @@ collectable_name = "log"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 shape = SubResource("CircleShape2D_jvff7")
+debug_color = Color(8.18223e-07, 0.639849, 0.358689, 0.42)
