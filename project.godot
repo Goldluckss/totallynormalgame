@@ -14,6 +14,10 @@ config/name="TotallyNormalGame"
 run/main_scene="res://scenes/home.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+ToolManager="*res://scripts/globals/tool_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
