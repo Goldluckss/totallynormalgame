@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=4 uid="uid://djt4wjeen5q7r"]
+[gd_scene load_steps=6 format=4 uid="uid://djt4wjeen5q7r"]
 
 [ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_444o7"]
 [ext_resource type="PackedScene" uid="uid://d2vvyi20mr6w3" path="res://scenes/characters/player/player.tscn" id="2_4a1ku"]
 [ext_resource type="PackedScene" uid="uid://cig82hdye720l" path="res://scenes/ui/path_screen.tscn" id="3_4hj5w"]
+[ext_resource type="PackedScene" uid="uid://calfmt82llhd4" path="res://scenes/components/area_transition.tscn" id="4_5rqtb"]
 
-[node name="route" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpsmd"]
+size = Vector2(74, 25)
+
+[node name="Route" type="Node2D"]
 y_sort_enabled = true
 
 [node name="TileMap" type="Node2D" parent="."]
@@ -28,7 +32,16 @@ tile_map_data = PackedByteArray("AAANABEABAAFAAAAAAAaABIABAAFAAAAAAAbAAgABAAFAAA
 tile_set = ExtResource("1_444o7")
 
 [node name="Player" parent="." instance=ExtResource("2_4a1ku")]
-position = Vector2(320, 11)
+position = Vector2(320, 25)
 current_tool = 0
 
 [node name="PathScreen" parent="." instance=ExtResource("3_4hj5w")]
+
+[node name="AreaTransition" parent="." instance=ExtResource("4_5rqtb")]
+target_scene = "Home"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTransition"]
+position = Vector2(319, -6.5)
+shape = SubResource("RectangleShape2D_mpsmd")
+
+[connection signal="body_entered" from="AreaTransition" to="AreaTransition" method="_on_body_entered"]
