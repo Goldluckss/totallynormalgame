@@ -406,6 +406,8 @@ collision_layer = 2
 script = ExtResource("1_ly0mq")
 current_tool = 1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_e0pt8")

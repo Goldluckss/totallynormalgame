@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_nwqla"]
 [ext_resource type="PackedScene" uid="uid://d2vvyi20mr6w3" path="res://scenes/characters/player/player.tscn" id="2_w0tsg"]
-[ext_resource type="PackedScene" uid="uid://bc1au4e75xv0g" path="res://scenes/ui/game_screen.tscn" id="3_vk3kd"]
+[ext_resource type="PackedScene" uid="uid://bc1au4e75xv0g" path="res://scenes/ui/home_ui/game_screen.tscn" id="3_vk3kd"]
 [ext_resource type="PackedScene" uid="uid://cse05fep6sb8v" path="res://scenes/objects/milk.tscn" id="4_p68co"]
 [ext_resource type="PackedScene" uid="uid://bqjneqlsrltrl" path="res://scenes/objects/egg.tscn" id="5_0q0bt"]
 [ext_resource type="PackedScene" uid="uid://calfmt82llhd4" path="res://scenes/components/area_transition.tscn" id="6_t2j23"]
@@ -46,10 +46,8 @@ tile_map_data = PackedByteArray("AAAPAA8ABQAAAAAABQAZABMABQAAAAAABQADAA0ABQAAAAA
 tile_set = ExtResource("1_nwqla")
 
 [node name="Player" parent="." instance=ExtResource("2_w0tsg")]
-position = Vector2(313, 238)
+position = Vector2(319, 342)
 current_tool = 0
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="GameScreen" parent="." instance=ExtResource("3_vk3kd")]
 
@@ -64,6 +62,8 @@ position = Vector2(214, 210)
 
 [node name="AreaTransition" parent="." instance=ExtResource("6_t2j23")]
 target_scene = "Route"
+player_spawn_position = Vector2(320, 25)
+spawn_offset = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTransition"]
 position = Vector2(320, 364.5)

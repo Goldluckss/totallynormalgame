@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://cmeyv8obdc218"]
 
-[ext_resource type="Theme" uid="uid://cc83d1ly6cd1u" path="res://scenes/ui/game_ui_2d_theme.tres" id="1_l4ire"]
-[ext_resource type="Texture2D" uid="uid://cqrda22k8dis" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="2_6f8bj"]
-[ext_resource type="Script" path="res://scenes/ui/tools_panel.gd" id="2_6ict0"]
-[ext_resource type="Texture2D" uid="uid://g3wnek16xset" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="3_suqub"]
+[ext_resource type="Theme" uid="uid://cc83d1ly6cd1u" path="res://scenes/ui/game_ui_2d_theme.tres" id="1_6uo2i"]
+[ext_resource type="Script" path="res://scenes/ui/home_ui/tools_panel.gd" id="2_63j23"]
+[ext_resource type="Texture2D" uid="uid://cqrda22k8dis" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="3_umaoi"]
+[ext_resource type="Texture2D" uid="uid://g3wnek16xset" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="4_mucxx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lp7jw"]
-atlas = ExtResource("2_6f8bj")
+atlas = ExtResource("3_umaoi")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gx0qm"]
@@ -24,7 +24,7 @@ atlas = SubResource("CompressedTexture2D_udbpg")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hif8h"]
-atlas = ExtResource("3_suqub")
+atlas = ExtResource("4_mucxx")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1qlt7"]
@@ -37,9 +37,9 @@ region = Rect2(0, 16, 16, 16)
 [node name="ToolsPanel" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("1_l4ire")
+theme = ExtResource("1_6uo2i")
 theme_type_variation = &"DarkWoodPanel"
-script = ExtResource("2_6ict0")
+script = ExtResource("2_63j23")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

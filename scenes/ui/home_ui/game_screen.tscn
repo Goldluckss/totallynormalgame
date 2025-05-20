@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc1au4e75xv0g"]
 
 [ext_resource type="Theme" uid="uid://cc83d1ly6cd1u" path="res://scenes/ui/game_ui_2d_theme.tres" id="1_xq7pf"]
-[ext_resource type="PackedScene" uid="uid://cmeyv8obdc218" path="res://scenes/ui/tools_panel.tscn" id="2_eul2a"]
+[ext_resource type="PackedScene" uid="uid://cmeyv8obdc218" path="res://scenes/ui/home_ui/tools_panel.tscn" id="2_eul2a"]
 
 [node name="GameScreen" type="CanvasLayer"]
 
