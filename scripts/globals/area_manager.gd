@@ -19,6 +19,11 @@ func transition_to_scene(scene_name: String, spawn_position: Vector2 = Vector2.Z
 			print("Unknown scene name: ", scene_name)
 			return
 			
+	# Use call_deferred to load and change the scene
+	call_deferred("_deferred_transition_to_scene", next_scene_path, spawn_position, scene_name)
+
+# New method to handle the deferred transition
+func _deferred_transition_to_scene(next_scene_path: String, spawn_position: Vector2, scene_name: String) -> void:
 	# Load the new scene
 	var next_scene = load(next_scene_path).instantiate()
 	
