@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="TotallyNormalGame"
-run/main_scene="res://scenes/home.tscn"
+run/main_scene="res://scenes/areas/home.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
 ToolManager="*res://scripts/globals/tool_manager.gd"
+AreaManager="*res://scripts/globals/area_manager.gd"
 
 [display]
 

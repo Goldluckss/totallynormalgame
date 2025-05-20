@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf0x555qjk3if"]
+
+[ext_resource type="Theme" uid="uid://cc83d1ly6cd1u" path="res://scenes/ui/game_ui_2d_theme.tres" id="1_rao5f"]
+[ext_resource type="Script" path="res://scenes/ui/tools_panel.gd" id="2_rbxg6"]
+[ext_resource type="Texture2D" uid="uid://cqrda22k8dis" path="res://assets/2D_assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="3_4gw0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp7jw"]
+atlas = ExtResource("3_4gw0t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gx0qm"]
+load_path = "res://.godot/imported/Basic_tools_and_meterials.png-2c2470caa59b15a5bf32cc2b0c74c599.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk3cu"]
+atlas = SubResource("CompressedTexture2D_gx0qm")
+region = Rect2(32, 0, 16, 16)
+
+[node name="ToolsPanel" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_rao5f")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_rbxg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ToolAxe" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_lp7jw")
+icon_alignment = 1
+
+[node name="ToolTilling" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_pk3cu")
+icon_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolAxe" to="." method="_on_tool_axe_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolTilling" to="." method="_on_tool_tilling_pressed"]
