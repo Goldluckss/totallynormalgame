@@ -16,6 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Transition to: " + target_scene + " at position: " + str(actual_spawn_position))
 		call_deferred("_deferred_transition", target_scene, actual_spawn_position)
 
+
 # New method for deferred transition
 func _deferred_transition(target_scene: String, actual_spawn_position: Vector2) -> void:
 	AreaManager.transition_to_scene(target_scene, actual_spawn_position)

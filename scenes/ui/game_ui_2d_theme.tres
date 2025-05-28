@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=21 format=3 uid="uid://cc83d1ly6cd1u"]
 
 [ext_resource type="Texture2D" uid="uid://d3mjagr4wocan" path="res://assets/ui/basic_ui_sprites.png" id="1_6531m"]
-[ext_resource type="FontVariation" path="res://assets/ui/fonts/zx_palm_variation.tres" id="2_1rrdt"]
+[ext_resource type="FontVariation" uid="uid://cgu0r7fv2x12c" path="res://assets/ui/fonts/zx_palm_variation.tres" id="2_1rrdt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2l7us"]
 atlas = ExtResource("1_6531m")

@@ -9,24 +9,19 @@ extends PanelContainer
 
 func _ready() -> void:
 	InventoryManager.inventory_changed.connect(on_inventory_changed)
-	
-func on_inventory_changed() -> void:
+	# Add this line to refresh the display immediately when the scene loads
+	update_display()
+
+func update_display() -> void:
 	var inventory: Dictionary = InventoryManager.inventory
 	
-	if inventory.has("log"):
-		log_label.text = str(inventory["log"])
+	# Update each label, showing 0 if the item doesn't exist in inventory
+	log_label.text = str(inventory.get("log", 0))
+	stone_label.text = str(inventory.get("stone", 0))
+	corn_label.text = str(inventory.get("corn", 0))
+	tomato_label.text = str(inventory.get("tomato", 0))
+	egg_label.text = str(inventory.get("egg", 0))
+	milk_label.text = str(inventory.get("milk", 0))
 	
-	if inventory.has("stone"):
-		stone_label.text = str(inventory["stone"])
-		
-	if inventory.has("corn"):
-		corn_label.text = str(inventory["corn"])
-	
-	if inventory.has("tomato"):
-		tomato_label.text = str(inventory["tomato"])
-		
-	if inventory.has("egg"):
-		egg_label.text = str(inventory["egg"])
-		
-	if inventory.has("milk"):
-		milk_label.text = str(inventory["milk"])
+func on_inventory_changed() -> void:
+	update_display()
