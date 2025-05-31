@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://causfqmjvqrt0"]
+[gd_scene load_steps=9 format=4 uid="uid://causfqmjvqrt0"]
 
 [ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_nwqla"]
+[ext_resource type="PackedScene" uid="uid://cr6iapd3jpbul" path="res://scenes/components/day_night_cycle_component.tscn" id="1_qx11k"]
 [ext_resource type="PackedScene" uid="uid://d2vvyi20mr6w3" path="res://scenes/characters/player/player.tscn" id="2_w0tsg"]
 [ext_resource type="PackedScene" uid="uid://bc1au4e75xv0g" path="res://scenes/ui/home_ui/game_screen.tscn" id="3_vk3kd"]
 [ext_resource type="PackedScene" uid="uid://cse05fep6sb8v" path="res://scenes/objects/milk.tscn" id="4_p68co"]
@@ -12,6 +13,8 @@ size = Vector2(66, 37)
 
 [node name="Home" type="Node2D"]
 y_sort_enabled = true
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_qx11k")]
 
 [node name="TileMap" type="Node2D" parent="."]
 y_sort_enabled = true
