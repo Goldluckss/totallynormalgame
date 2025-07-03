@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://djt4wjeen5q7r"]
+[gd_scene load_steps=7 format=4 uid="uid://djt4wjeen5q7r"]
 
 [ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_444o7"]
+[ext_resource type="PackedScene" uid="uid://cr6iapd3jpbul" path="res://scenes/components/day_night_cycle_component.tscn" id="1_gk04h"]
 [ext_resource type="PackedScene" uid="uid://d2vvyi20mr6w3" path="res://scenes/characters/player/player.tscn" id="2_4a1ku"]
-[ext_resource type="PackedScene" uid="uid://cig82hdye720l" path="res://scenes/ui/path_ui/path_screen.tscn" id="3_4hj5w"]
+[ext_resource type="PackedScene" uid="uid://icyhlb8d6osw" path="res://scenes/ui/path_ui/path_screen.tscn" id="3_4hj5w"]
 [ext_resource type="PackedScene" uid="uid://calfmt82llhd4" path="res://scenes/components/area_transition.tscn" id="4_5rqtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpsmd"]
@@ -10,6 +11,8 @@ size = Vector2(74, 25)
 
 [node name="Route" type="Node2D"]
 y_sort_enabled = true
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_gk04h")]
 
 [node name="TileMap" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -31,11 +34,11 @@ tile_set = ExtResource("1_444o7")
 tile_map_data = PackedByteArray("AAANABEABAAFAAAAAAAaABIABAAFAAAAAAAbAAgABAAFAAAAAAAOAAgABAAFAAAAAAATAAIABAAGAAEAAAAVAAQABAAGAAEAAAAQAA0ABAAGAAEAAAAWAAgABAAGAAEAAAAYAA8ABAAGAAEAAAATABEABAAGAAEAAAASAAoABAAGAAEAAAAXAAwABAAGAAEAAAAUAA4ABAAGAAEAAAAcAAoABAAGAAEAAAAjAAoABAAGAAEAAAAmAAsABAAGAAEAAAASAA4ABAAFAAEAAAAaAA0ABAAFAAEAAAAUAAgABAAFAAEAAAANAA4ABAAFAAEAAAASABIABAAFAAEAAAASAAYABAAFAAEAAAAZAAsABAAFAAEAAAAPAA8ABAAGAAMAAAAcAA8ABAAGAAMAAAAXAAYABAAGAAMAAAATAAwABAAGAAMAAAAbABAABAAFAAMAAAAXAAcABAAFAAMAAAAVABEABAAGAAIAAAAbAAwABAAGAAIAAAAiAAsABAAGAAIAAAA=")
 tile_set = ExtResource("1_444o7")
 
+[node name="PathScreen" parent="." instance=ExtResource("3_4hj5w")]
+
 [node name="Player" parent="." instance=ExtResource("2_4a1ku")]
 position = Vector2(320, 25)
 current_tool = 0
-
-[node name="PathScreen" parent="." instance=ExtResource("3_4hj5w")]
 
 [node name="AreaTransition" parent="." instance=ExtResource("4_5rqtb")]
 target_scene = "Home"
