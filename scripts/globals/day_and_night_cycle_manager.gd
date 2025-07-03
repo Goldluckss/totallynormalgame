@@ -1,36 +1,42 @@
+# day_and_night_cycle_manager.gd
+# Add this to Project Settings -> Globals with name "TimeManager"
 extends Node
 
-const MINUTES_PER_DAY: int = 24* 60
+const MINUTES_PER_DAY: int = 24 * 60
 const MINUTES_PER_HOUR: int = 60
 const GAME_MINUTE_DURATION: float = TAU / MINUTES_PER_DAY
 
 var game_speed: float = 5.0
-
-var intial_day: int = 1
-var intial_hour: int = 12
-var intial_minute: int = 30
+var initial_day: int = 1
+var initial_hour: int = 12
+var initial_minute: int = 30
 
 var time: float = 0.0
 var current_minute: int = -1
 var current_day: int = 0
 
 signal game_time(time: float)
-signal time_tick(day: int, hour: int, minute:  int)
+signal time_tick(day: int, hour: int, minute: int)
 signal time_tick_day(day: int)
 
 func _ready() -> void:
-	set_initial_time()
-
+	# Only set initial time if time is at zero (first run)
+	if time == 0.0:
+		set_initial_time()
+		print("TimeManager: First initialization")
+	else:
+		print("TimeManager: Already initialized, current time: ", get_time_string())
+	
 func _process(delta: float) -> void:
-	time += delta * game_speed *GAME_MINUTE_DURATION
+	time += delta * game_speed * GAME_MINUTE_DURATION
 	game_time.emit(time)
 	
 	recalculate_time()
 
 func set_initial_time() -> void:
-	var initial_total_minute= intial_day * MINUTES_PER_DAY + (intial_hour * MINUTES_PER_HOUR) + intial_minute
-	
+	var initial_total_minute = initial_day * MINUTES_PER_DAY + (initial_hour * MINUTES_PER_HOUR) + initial_minute
 	time = initial_total_minute * GAME_MINUTE_DURATION
+	print("set_initial_time() called - time set to: ", time, " (", get_time_string(), ")")
 
 func recalculate_time() -> void:
 	var total_minutes: int = int(time / GAME_MINUTE_DURATION)
@@ -45,3 +51,34 @@ func recalculate_time() -> void:
 		
 	if current_day != day:
 		current_day = day
+		time_tick_day.emit(day)
+
+# Get current time as formatted string
+func get_time_string() -> String:
+	var total_minutes: int = int(time / GAME_MINUTE_DURATION)
+	var day: int = int(total_minutes / MINUTES_PER_DAY)
+	var current_day_minutes: int = total_minutes % MINUTES_PER_DAY
+	var hour: int = int(current_day_minutes / MINUTES_PER_HOUR)
+	var minute: int = int(current_day_minutes % MINUTES_PER_HOUR)
+	
+	return "Day %d - %02d:%02d" % [day, hour, minute]
+
+# Get current time values
+func get_current_time() -> Dictionary:
+	var total_minutes: int = int(time / GAME_MINUTE_DURATION)
+	var day: int = int(total_minutes / MINUTES_PER_DAY)
+	var current_day_minutes: int = total_minutes % MINUTES_PER_DAY
+	var hour: int = int(current_day_minutes / MINUTES_PER_HOUR)
+	var minute: int = int(current_day_minutes % MINUTES_PER_HOUR)
+	
+	return {
+		"day": day,
+		"hour": hour,
+		"minute": minute
+	}
+
+# Reset time to initial values (for new game)
+func reset_time() -> void:
+	time = 0.0
+	set_initial_time()
+	print("TimeManager: Time reset to initial values")

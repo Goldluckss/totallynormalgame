@@ -1,3 +1,4 @@
+# area_manager.gd
 extends Node
 
 var current_scene = "Home"
@@ -8,6 +9,15 @@ func _ready():
 
 # Handle transitioning between scenes
 func transition_to_scene(scene_name: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
+	# Print time before transition
+	if DayAndNightCycleManager:
+		print("Time before transition: ", DayAndNightCycleManager.get_time_string())
+		var time_data = DayAndNightCycleManager.get_current_time()
+		print("Raw time data - Day: %d, Hour: %d, Minute: %d" % [time_data.day, time_data.hour, time_data.minute])
+		print("Raw time value: ", DayAndNightCycleManager.time)
+	else:
+		print("ERROR: DayAndNightCycleManager not found!")
+	
 	# Determine the scene path based on the scene name
 	var next_scene_path = ""
 	match scene_name:
@@ -24,6 +34,10 @@ func transition_to_scene(scene_name: String, spawn_position: Vector2 = Vector2.Z
 
 # New method to handle the deferred transition
 func _deferred_transition_to_scene(next_scene_path: String, spawn_position: Vector2, scene_name: String) -> void:
+	# Print time after transition starts
+	if DayAndNightCycleManager:
+		print("Time after transition starts: ", DayAndNightCycleManager.get_time_string())
+	
 	# Load the new scene
 	var next_scene = load(next_scene_path).instantiate()
 	
@@ -38,3 +52,9 @@ func _deferred_transition_to_scene(next_scene_path: String, spawn_position: Vect
 		player.global_position = spawn_position
 	
 	current_scene = scene_name
+	
+	# Print time after transition completes
+	if DayAndNightCycleManager:
+		print("Time after transition completes: ", DayAndNightCycleManager.get_time_string())
+	else:
+		print("ERROR: DayAndNightCycleManager not accessible after transition!")
