@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://causfqmjvqrt0"]
+[gd_scene load_steps=12 format=4 uid="uid://causfqmjvqrt0"]
 
+[ext_resource type="PackedScene" uid="uid://doluhdmr0epxy" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_0lfe6"]
 [ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_nwqla"]
 [ext_resource type="PackedScene" uid="uid://cr6iapd3jpbul" path="res://scenes/components/day_night_cycle_component.tscn" id="1_qx11k"]
 [ext_resource type="PackedScene" uid="uid://d2vvyi20mr6w3" path="res://scenes/characters/player/player.tscn" id="2_w0tsg"]
@@ -7,12 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://cse05fep6sb8v" path="res://scenes/objects/milk.tscn" id="4_p68co"]
 [ext_resource type="PackedScene" uid="uid://bqjneqlsrltrl" path="res://scenes/objects/egg.tscn" id="5_0q0bt"]
 [ext_resource type="PackedScene" uid="uid://calfmt82llhd4" path="res://scenes/components/area_transition.tscn" id="6_t2j23"]
+[ext_resource type="PackedScene" uid="uid://ok26fv21o0jt" path="res://scenes/components/save_level_data_component.tscn" id="8_qcyro"]
+[ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="9_lhp7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37ha6"]
 size = Vector2(66, 37)
 
-[node name="Home" type="Node2D"]
+[node name="home" type="Node2D"]
 y_sort_enabled = true
+
+[node name="TestSceneSaveDataManagerComponent" parent="." instance=ExtResource("1_0lfe6")]
+
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("8_qcyro")]
+script = ExtResource("9_lhp7c")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_qx11k")]
 
