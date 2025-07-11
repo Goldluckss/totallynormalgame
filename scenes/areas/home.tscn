@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://causfqmjvqrt0"]
+[gd_scene load_steps=13 format=4 uid="uid://causfqmjvqrt0"]
 
 [ext_resource type="PackedScene" uid="uid://doluhdmr0epxy" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_0lfe6"]
 [ext_resource type="TileSet" uid="uid://dk1qdqacwb0n3" path="res://TileSets/map_tile_set.tres" id="1_nwqla"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://calfmt82llhd4" path="res://scenes/components/area_transition.tscn" id="6_t2j23"]
 [ext_resource type="PackedScene" uid="uid://ok26fv21o0jt" path="res://scenes/components/save_level_data_component.tscn" id="8_qcyro"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="9_lhp7c"]
+[ext_resource type="PackedScene" uid="uid://kst0mlexa64g" path="res://scenes/objects/chest/chest.tscn" id="11_yuxte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37ha6"]
 size = Vector2(66, 37)
@@ -17,10 +18,10 @@ size = Vector2(66, 37)
 [node name="home" type="Node2D"]
 y_sort_enabled = true
 
-[node name="TestSceneSaveDataManagerComponent" parent="." instance=ExtResource("1_0lfe6")]
-
 [node name="SaveLevelDataComponent" parent="." instance=ExtResource("8_qcyro")]
 script = ExtResource("9_lhp7c")
+
+[node name="TestSceneSaveDataManagerComponent" parent="." instance=ExtResource("1_0lfe6")]
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_qx11k")]
 
@@ -80,5 +81,11 @@ spawn_offset = Vector2(0, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTransition"]
 position = Vector2(320, 364.5)
 shape = SubResource("RectangleShape2D_37ha6")
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="chest" parent="Objects" instance=ExtResource("11_yuxte")]
+position = Vector2(360, 261)
 
 [connection signal="body_entered" from="AreaTransition" to="AreaTransition" method="_on_body_entered"]

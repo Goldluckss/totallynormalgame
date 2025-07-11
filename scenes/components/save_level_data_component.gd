@@ -24,7 +24,7 @@ func save_node_data() -> void:
 				var save_final_resource = save_data_resource.duplicate()
 				game_data_resource.save_data_nodes.append(save_final_resource)
 				
-
+			
 func save_game() -> void:
 	if !DirAccess.dir_exists_absolute(save_game_data_path):
 		DirAccess.make_dir_absolute((save_game_data_path))
